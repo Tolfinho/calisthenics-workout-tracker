@@ -1,0 +1,15 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary1: #121928;
+    --primary2: #1c2634;
+
+    --secondary1: #f4f4f4;
+    --secondary2: #cacdd4;
+
+    --alternative: #2563eb; 
+}
