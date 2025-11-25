@@ -16,9 +16,9 @@
         <input type="text" class="input mb-1" id="nome" v-model="nome" placeholder="Informe o nome do treino">
 
         <label for="data-hora" class="label">Data e hora: </label>
-        <input type="datetime" class="input mb-1" id="data-hora" v-model="data_hora">
+        <input type="datetime-local" class="input mb-1" id="data-hora" v-model="data_hora">
 
-        <label for="duracao" class="label">Data e hora: </label>
+        <label for="duracao" class="label">Duração (minutos): </label>
         <input type="number" class="input mb-1" id="duracao" v-model="duracao">
 
         <label for="observacao" class="label">Observação: </label>
@@ -58,7 +58,7 @@
           </div>
         </div>
 
-        <button class="btn btn-primary salvarBtn">Salvar Treino</button>
+        <button class="btn btn-primary salvarBtn" @click="salvar">Salvar Treino</button>
       </div>
 
     </div>
@@ -69,6 +69,11 @@
 import { ref, onMounted } from 'vue'
 
 const exerciciosList = ref([]); // Referentes ao select de exercícios
+
+const nome = ref("");
+const data_hora = ref("");
+const duracao = ref(0);
+const observacao = ref("");
 const exerciciosTreino = ref([]); // Referentes a lista de exercícios a serem cadastrados no treino
 
 onMounted(async () => {
@@ -86,11 +91,32 @@ function adicionarExercicio() {
 }
 
 function removerExercicio(index) {
-  exerciciosTreino.value = exerciciosTreino.value.splice(index, 1);
+  exerciciosTreino.value.splice(index, 1);
 }
 
-function salvar() {
-  
+async function salvar() {
+  const novoTreino = {
+    nome: nome.value,
+    dataHora: data_hora.value,
+    duracaoMinutos: duracao.value,
+    observacao: observacao.value,
+    exercicios: exerciciosTreino.value,
+  }
+
+  const res = await fetch("http://localhost:3000/treinos", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(novoTreino)
+  })
+
+  if (res.ok) {
+    // limparFormulario()
+    alert("Treino salvo com sucesso!")
+  } else {
+    alert("Erro ao salvar o treino.")
+  }
 }
 </script>
 

@@ -59,24 +59,30 @@
   ],
   "treinos": [
     {
-      "id": "1",
-      "nome": "Treino A - Peito e Tríceps",
-      "dataHora": "2025-01-15T10:00:00",
-      "duracaoMinutos": 60,
-      "observacao": "Focar na técnica e amplitude.",
+      "id": "03ae",
+      "nome": "meu primeiro treino",
+      "dataHora": "2025-11-25T17:30",
+      "duracaoMinutos": 30,
+      "observacao": "obs",
       "exercicios": [
-        1,
-        4
-      ]
-    },
-    {
-      "id": "2",
-      "nome": "Treino B – Costas e Bíceps",
-      "dataHora": "2025-01-17T09:30:00",
-      "duracaoMinutos": 55,
-      "observacao": "Evitar exagero de carga.",
-      "exercicios": [
-        2
+        {
+          "exercicioId": "1",
+          "descanso": 10,
+          "series": 0,
+          "repeticoes": 0
+        },
+        {
+          "exercicioId": "2",
+          "descanso": 20,
+          "series": 0,
+          "repeticoes": 0
+        },
+        {
+          "exercicioId": "3",
+          "descanso": 30,
+          "series": 0,
+          "repeticoes": 0
+        }
       ]
     }
   ]
