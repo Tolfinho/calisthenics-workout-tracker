@@ -115,13 +115,6 @@ function limparFormulario() {
 </script>
 
 <style scoped>
-.page {
-  background-color: var(--primary2);
-  color: var(--secondary1);
-  min-height: 100vh;
-  padding: 30px 0;
-}
-
 .page-header {
   display: flex;
   justify-content: space-between;
